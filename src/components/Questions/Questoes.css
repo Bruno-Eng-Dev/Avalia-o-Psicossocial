@@ -162,8 +162,8 @@
 /* círculo vazio */
 .likert-opt::after {
   content: "";
-  width: 3%;
-  height: 3%;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 
   border: 2px solid #cbd5e1;
