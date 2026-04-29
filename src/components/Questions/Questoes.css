@@ -98,8 +98,8 @@
 ===================================================== */
 
 .likert {
-  display: flex;
-  gap: 8px;
+  display: grid;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
