@@ -1,0 +1,366 @@
+/* =====================================================
+   BASE GERAL
+===================================================== */
+
+.cat-section {
+  margin-bottom: 28px;
+  background: #ffffff;
+  border: 1px solid #dde3ef;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.cat-section {
+  --section-color: #1b3a6b;
+}
+
+.cat-section h3 {
+  background: var(--section-color);
+  color: white;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cat-section > .open-q {
+  padding: 18px 20px;
+  border-bottom: 1px solid #dde3ef;
+}
+
+.cat-section > .open-q:last-child {
+  border-bottom: none;
+}
+
+/* =====================================================
+   CARD DA QUESTÃO
+===================================================== */
+
+.question {
+  background: #ffffff;
+  border: 1px solid #dde3ef;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+
+  position: relative;
+  isolation: isolate;
+
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+/* hover leve */
+.question:hover {
+  border-color: #c7d2fe;
+  background: #f8faff;
+}
+
+/* estado inválido */
+.question.invalid {
+  border-color: #dc2626;
+  background: #fff5f5;
+}
+
+.question.invalid .q-text {
+  color: #dc2626;
+}
+
+/* =====================================================
+   TEXTO DA QUESTÃO
+===================================================== */
+
+.q-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+/* número da questão */
+.q-num {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-right: 8px;
+  color: #ffffff;
+  background: #1b3a6b;
+}
+
+/* =====================================================
+   ESCALA LIKERT
+===================================================== */
+
+.likert {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.likert label {
+  flex: 1;
+  min-width: 92px;
+  cursor: pointer;
+}
+
+.likert input {
+  display: none;
+}
+
+/* =====================================================
+   OPÇÃO LIKERT
+===================================================== */
+
+.likert-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 6px;
+  border-radius: 10px;
+
+  border: 1.5px solid #dde3ef;
+  background: #fafbfd;
+
+  position: relative;
+
+  user-select: none;
+}
+
+/* número */
+.opt-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+/* label */
+.opt-label {
+  font-size: 10px;
+  color: #6b7280;
+  margin-top: 2px;
+  text-align: center;
+}
+
+/* hover leve */
+.likert label:hover .likert-opt {
+  border-color: #2a5298;
+  background: #eef2fb;
+}
+
+/* =====================================================
+   MARCADOR DE SELEÇÃO (CHECK VISUAL)
+===================================================== */
+
+/* círculo vazio */
+.likert-opt::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+
+  border: 2px solid #cbd5e1;
+  background: white;
+
+  position: absolute;
+  top: 6px;
+  right: 6px;
+
+  transition: all 0.15s ease;
+}
+
+/* estado selecionado (círculo verde + glow) */
+.likert input:checked + .likert-opt::after {
+  background: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16,185,129,0.25);
+}
+
+/* check simbólico */
+.likert input:checked + .likert-opt::before {
+  content: "✓";
+  position: absolute;
+  top: 4px;
+  right: 7px;
+
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+/* =====================================================
+   ESTADO SELECIONADO (DESTAQUE FORTE)
+===================================================== */
+
+.likert input:checked + .likert-opt {
+  background: #1b3a6b;
+  border-color: #1b3a6b;
+
+  transform: scale(1.02);
+}
+
+.likert input:checked + .likert-opt .opt-num,
+.likert input:checked + .likert-opt .opt-label {
+  color: #ffffff;
+}
+
+/* =====================================================
+   CORES POR CATEGORIA
+===================================================== */
+
+.cat-demanda {
+  --q-num-color: #ef4444;
+  --section-color: #ef4444;
+}
+.cat-controle {
+  --q-num-color: #3b82f6;
+  --section-color: #3b82f6;
+}
+.cat-chefia {
+  --q-num-color: #8b5cf6;
+  --section-color: #8b5cf6;
+}
+.cat-colegas {
+  --q-num-color: #10b981;
+  --section-color: #10b981;
+}
+.cat-relac {
+  --q-num-color: #f97316;
+  --section-color: #f97316;
+}
+.cat-cargo {
+  --q-num-color: #0ea5e9;
+  --section-color: #0ea5e9;
+}
+.cat-mudanca {
+  --q-num-color: #eab308;
+  --section-color: #eab308;
+}
+
+.cat-demanda .q-num { background: var(--q-num-color); }
+.cat-controle .q-num { background: var(--q-num-color); }
+.cat-chefia .q-num { background: var(--q-num-color); }
+.cat-colegas .q-num { background: var(--q-num-color); }
+.cat-relac .q-num { background: var(--q-num-color); }
+.cat-cargo .q-num { background: var(--q-num-color); }
+.cat-mudanca .q-num { background: var(--q-num-color); }
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 600px) {
+  .likert label {
+    min-width: 72px;
+  }
+
+  .q-text {
+    font-size: 13px;
+  }
+}
+
+/* =====================================================
+   AJUSTES DE ESTABILIDADE VISUAL
+===================================================== */
+
+.question,
+.likert-opt {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+* {
+  scroll-behavior: auto;
+}
+
+/* =====================================================
+   SEÇÃO ABERTA
+===================================================== */
+
+.open-section {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dde3ef;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+/* header */
+.open-header {
+  background: linear-gradient(135deg, #1b3a6b, #2a5298);
+  color: white;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.optional {
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+/* pergunta */
+.open-q {
+  background: #ffffff;
+  border: 1px solid #dde3ef;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.open-section .open-q {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #dde3ef;
+}
+
+.open-section .open-q:last-child {
+  border-bottom: none;
+}
+
+/* texto */
+.open-q p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #1a1a2e;
+}
+
+/* textarea */
+.open-q textarea {
+  width: 95%;
+  min-height: 90px;
+  padding: 12px;
+
+  border: 1.5px solid #dde3ef;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-family: inherit;
+
+  background: #fafbfd;
+
+  resize: vertical;
+  outline: none;
+
+  transition: border-color 0.2s;
+}
+
+.open-q textarea:focus {
+  border-color: #1b3a6b;
+}
